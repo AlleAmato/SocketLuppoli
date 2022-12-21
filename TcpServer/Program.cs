@@ -6,11 +6,39 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using NLog;
+using System.Xml.Serialization;
+using System.IO;
 
 namespace TcpServer
 {
+    internal class CustomData//oggetto da passare
+    {
+        public string text { get; set; }
+        public int number { get; set; }
+    }
+    internal class NetworkPacket //classe di supporto per ricreare il pacchetto,
+                                 //va bene per qualsiasi oggetto da trasferire traformato in array o lista di byte
+    {
+        public List<byte> header;
+        public List<byte> data;
+    }
     internal class Program
     {
+        static NetworkPacket Encode (CustomData data)
+        {
+            var serializer = new XmlSerializer(typeof(CustomData));
+            var stringBuilder = new StringBuilder();
+            var stringWriter = new StringWriter(stringBuilder);
+            serializer.Serialize(stringWriter, data);
+            
+            var bodyBytes= Encoding.ASCII.GetBytes(stringBuilder.ToString());
+            var headerBytes = BitConverter.GetBytes(IPAddress.HostToNetworkOrder( bodyBytes.Length));
+            return new NetworkPacket
+            {
+                header = new List<byte>(headerBytes),
+                data = new List<byte>(bodyBytes)
+            };
+        }
         static async Task Main(string[] args)
         {
             //Creazione della socket
@@ -45,7 +73,7 @@ namespace TcpServer
                             {
                                 Console.WriteLine("Connessione client chiusa");
                                 Logger logger = LogManager.GetCurrentClassLogger();
-
+                                //logger.Debug(), molto utile perchè posso passargli del codice che viene eseguito solo ce c'è un eccezione ecc
                                 logger.Info("Connessione client chiusa");
 
                                 break;
