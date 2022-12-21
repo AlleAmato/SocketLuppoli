@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.3.32922.545
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32901.82
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocketClient", "SocketClient\SocketClient.csproj", "{7DDF88CA-C2B8-4BEB-A6DC-1EC42A0C5D27}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UdpClient", "UdpClient\UdpClient.csproj", "{26163578-7D02-45DD-BFED-64443A9BA6A5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UdpServer", "UdpServer\UdpServer.csproj", "{7ADA35A4-58B5-46A4-BE92-4E65059A89AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NModBusApp", "NModBusApp\NModBusApp.csproj", "{2C409468-F57F-4F5B-83BB-191CA60D171B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{7ADA35A4-58B5-46A4-BE92-4E65059A89AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7ADA35A4-58B5-46A4-BE92-4E65059A89AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7ADA35A4-58B5-46A4-BE92-4E65059A89AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C409468-F57F-4F5B-83BB-191CA60D171B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C409468-F57F-4F5B-83BB-191CA60D171B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C409468-F57F-4F5B-83BB-191CA60D171B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C409468-F57F-4F5B-83BB-191CA60D171B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
